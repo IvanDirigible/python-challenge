@@ -42,17 +42,28 @@ with open(file_to_load) as financial_data:
       if list_item != None:  
         list_item = int(row[1]) - list_item
         net_change_list.append(list_item)
+
+        # Calculate the greatest increase in profits (month and amount)
+        if list_item > great_inc:
+          great_inc = list_item
+          print(f"List: {list_item}")
+          print(f"Increase: {great_inc}")
+          month_inc = row[0]
+
+        # Calculate the greatest decrease in losses (month and amount)
+        if list_item < great_dec:
+          great_dec = list_item
+          month_dec = row[0]
+
       list_item = int(row[1])
       
       total_net = total_net + int(row[1])
 
-        # Calculate the greatest increase in profits (month and amount)
-      if int(row[1]) > great_inc:
-        great_inc = int(row[1])
+      # if list_item > great_inc:
+      #  great_inc = list_item
+      #  print(f"List: {list_item}")
+      #  print(f"Increase: {great_inc}")
 
-        # Calculate the greatest decrease in losses (month and amount)
-      if int(row[1]) < great_dec:
-         great_dec = int(row[1])
       
 
 # Calculate the average net change across the months
@@ -68,8 +79,8 @@ def print_summary():
          Total Months: {total_months}\n\
          Total: ${total_net}\n\
          Average Change: ${net_change}\n\
-         Greatest Increase in Profits: {great_inc}\n\
-         Greatest Decrease in Profits: {great_dec}")
+         Greatest Increase in Profits: {month_inc} {great_inc}\n\
+         Greatest Decrease in Profits: {month_dec} {great_dec}")
 
 # Print the output
 print_summary()
