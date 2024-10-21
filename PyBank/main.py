@@ -43,14 +43,12 @@ with open(file_to_load) as financial_data:
         list_item = int(row[1]) - list_item
         net_change_list.append(list_item)
 
-        # Calculate the greatest increase in profits (month and amount)
+          # Calculate the greatest increase in profits (month and amount)
         if list_item > great_inc:
           great_inc = list_item
-          print(f"List: {list_item}")
-          print(f"Increase: {great_inc}")
           month_inc = row[0]
 
-        # Calculate the greatest decrease in losses (month and amount)
+          # Calculate the greatest decrease in losses (month and amount)
         if list_item < great_dec:
           great_dec = list_item
           month_dec = row[0]
@@ -70,20 +68,23 @@ with open(file_to_load) as financial_data:
 # net_change = total_net / total_months
 # print(f"Does this work?\n{net_change_list}")
 # total_net = sum(net_change_list)
-net_change = average(net_change_list)
+net_change = round(average(net_change_list), 2)
 
 # Generate the output summary
-def print_summary():
-   print(f"Financial Analysis\n\
-         ----------------------------\n\
-         Total Months: {total_months}\n\
-         Total: ${total_net}\n\
-         Average Change: ${net_change}\n\
-         Greatest Increase in Profits: {month_inc} {great_inc}\n\
-         Greatest Decrease in Profits: {month_dec} {great_dec}")
+output = (
+f"Financial Analysis\n\
+----------------------------\n\
+Total Months: {total_months}\n\
+Total: ${total_net}\n\
+Average Change: ${net_change}\n\
+Greatest Increase in Profits: {month_inc} (${great_inc})\n\
+Greatest Decrease in Profits: {month_dec} (${great_dec})"
+)
+#def print_summary():
+#   print(output)
 
 # Print the output
-print_summary()
+print(output)
 
 # Write the results to a text file
 with open(file_to_output, "w") as txt_file:
