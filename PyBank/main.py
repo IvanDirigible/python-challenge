@@ -28,7 +28,7 @@ with open(file_to_load) as financial_data:
     header = next(reader)
 
     # Extract first row to avoid appending to net_change_list
-    #net_change_list = next(reader)
+    # net_change_list = next(reader)
 
     # Track the total and net change
 
@@ -43,7 +43,8 @@ with open(file_to_load) as financial_data:
         list_item = int(row[1]) - list_item
         net_change_list.append(list_item)
       list_item = int(row[1])
-      # total_net = total_net + int(row[1])
+      
+      total_net = total_net + int(row[1])
 
         # Calculate the greatest increase in profits (month and amount)
       if int(row[1]) > great_inc:
@@ -56,7 +57,8 @@ with open(file_to_load) as financial_data:
 
 # Calculate the average net change across the months
 # net_change = total_net / total_months
-print(f"Does this work?\n{net_change_list}")
+# print(f"Does this work?\n{net_change_list}")
+# total_net = sum(net_change_list)
 net_change = average(net_change_list)
 
 # Generate the output summary
