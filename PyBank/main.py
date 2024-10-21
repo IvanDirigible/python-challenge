@@ -1,11 +1,8 @@
-# -*- coding: UTF-8 -*-
-"""PyBank Homework Starter File."""
-
 # Dependencies
 import csv
 import os
 
-# Files to load and output (update with correct file paths)
+# Files to load and output
 file_to_load = os.path.join("Resources", "budget_data.csv")  # Input file path
 file_to_output = os.path.join("analysis", "budget_analysis.txt")  # Output file path
 
@@ -27,9 +24,6 @@ with open(file_to_load) as financial_data:
     # Skip the header row
     header = next(reader)
 
-    # Extract first row to avoid appending to net_change_list
-    # net_change_list = next(reader)
-
     # Track the total and net change
 
     # Process each row of data
@@ -38,7 +32,7 @@ with open(file_to_load) as financial_data:
         # Track the total
       total_months = total_months + 1
 
-        # Track the net change
+        # Track the net change, running comparisons on all but the first row
       if list_item != None:  
         list_item = int(row[1]) - list_item
         net_change_list.append(list_item)
@@ -53,21 +47,12 @@ with open(file_to_load) as financial_data:
           great_dec = list_item
           month_dec = row[0]
 
+       # If first item in loop, set as list item
       list_item = int(row[1])
-      
+       # Add value to total
       total_net = total_net + int(row[1])
 
-      # if list_item > great_inc:
-      #  great_inc = list_item
-      #  print(f"List: {list_item}")
-      #  print(f"Increase: {great_inc}")
-
-      
-
 # Calculate the average net change across the months
-# net_change = total_net / total_months
-# print(f"Does this work?\n{net_change_list}")
-# total_net = sum(net_change_list)
 net_change = round(average(net_change_list), 2)
 
 # Generate the output summary
@@ -80,8 +65,6 @@ Average Change: ${net_change}\n\
 Greatest Increase in Profits: {month_inc} (${great_inc})\n\
 Greatest Decrease in Profits: {month_dec} (${great_dec})"
 )
-#def print_summary():
-#   print(output)
 
 # Print the output
 print(output)
