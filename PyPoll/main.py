@@ -13,7 +13,10 @@ file_to_output = os.path.join("analysis", "election_analysis.txt")  # Output fil
 total_votes = 0  # Track the total number of votes cast
 
 # Define lists and dictionaries to track candidate names and vote counts
-
+cand_list = []
+cand_dict ={}
+current_cand = ""
+# {"candidate":"","votes":0}
 
 # Winning Candidate and Winning Count Tracker
 
@@ -29,19 +32,23 @@ with open(file_to_load) as election_data:
     for row in reader:
 
         # Print a loading indicator (for large datasets)
-        print(". ", end="")
+      print(". ", end="")
 
         # Increment the total vote count for each row
-
+      total_votes = total_votes + 1
 
         # Get the candidate's name from the row
-
+      current_cand = row[2]
 
         # If the candidate is not already in the candidate list, add them
-
-
+      if current_cand not in cand_dict.values():
+         cand_dict["Name"] = current_cand
+         cand_dict["Votes"] = 1
+         cand_list.append(cand_dict)
+        
         # Add a vote to the candidate's count
-
+      #else:
+        # cand_dict["Votes"] = cand_dict["Votes"] + 1
 
 # Open a text file to save the output
 with open(file_to_output, "w") as txt_file:
@@ -56,6 +63,8 @@ with open(file_to_output, "w") as txt_file:
       Total Votes: {total_votes}"
   )
 
+  print(f"Dictionary: {cand_dict}\n\
+        List: {cand_list}")
     # Loop through the candidates to determine vote percentages and identify the winner
 
 
