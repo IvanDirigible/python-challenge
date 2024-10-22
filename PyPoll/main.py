@@ -46,6 +46,7 @@ with open(file_to_load) as election_data:
          #cand_dict["Votes"] = 1
          cand_dict[current_cand] = 0
          #cand_list.append(cand_dict)
+         #print(cand_list[cand_dict[0]["Name"]])
 
         # Add a vote to the candidate's count
       cand_dict[current_cand] = cand_dict[current_cand] + 1
@@ -67,10 +68,12 @@ Total Votes: {total_votes}"
 
     # Loop through the candidates to determine vote percentages and identify the winner
   for i in list(cand_dict.keys()):
-     print(cand_dict[i])
+     print(f"Look here: {cand_dict}")
+     print(f"Keys: {cand_dict[i]}")
      percent_votes = cand_dict[i] / total_votes
      #cand_dict[f"Percent{percent_votes}"] = percent_votes
-     print(percent_votes)
+     perc_dict = {"Total": cand_dict[i], "Percent": percent_votes}
+     print(perc_dict)
         # Get the vote count and calculate the percentage
 
 
