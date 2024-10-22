@@ -14,8 +14,7 @@ total_votes = 0  # Track the total number of votes cast
 
 # Define lists and dictionaries to track candidate names and vote counts
 cand_list = []
-#cand_dict ={"Name", "Votes", "Percent"}
-cand_dict = {}
+cand_dict ={}
 current_cand = ""
 # {"candidate":"","votes":0}
 
@@ -46,7 +45,7 @@ with open(file_to_load) as election_data:
          #cand_dict["Name"] = current_cand
          #cand_dict["Votes"] = 1
          cand_dict[current_cand] = 0
-         cand_list.append(cand_dict[current_cand])
+         #cand_list.append(cand_dict)
 
         # Add a vote to the candidate's count
       cand_dict[current_cand] = cand_dict[current_cand] + 1
@@ -68,10 +67,10 @@ Total Votes: {total_votes}"
 
     # Loop through the candidates to determine vote percentages and identify the winner
   for i in list(cand_dict.keys()):
-     print(f"i: {i}")
+     print(cand_dict[i])
      percent_votes = cand_dict[i] / total_votes
-     cand_dict[f"Percent{percent_votes}"] = percent_votes
-     print(cand_dict)
+     #cand_dict[f"Percent{percent_votes}"] = percent_votes
+     print(percent_votes)
         # Get the vote count and calculate the percentage
 
 
