@@ -25,7 +25,6 @@ with open(file_to_load) as financial_data:
     header = next(reader)
 
     # Track the total and net change
-
     # Process each row of data
     for row in reader:
 

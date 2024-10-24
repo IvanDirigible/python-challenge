@@ -5,7 +5,7 @@ Write a pair of Python scripts to evaluate data from two real-world situations: 
 ### PyBank
 The banking script should determine the duration (in months) of the dataset, the net total of Profits/Losses, the average change in Profits/Losses between months, the period of greatest increase in profits, and the period of greatest decrease in profits. This analysis should then be exported to a text file.
 ### PyPoll
-The election script should count the total number of votes, list the candidates and the total votes they received. Then, the script should calculate the percentage of total votes each candidate received, and determine the winner. This analysis should then be exported to a separate text file.
+The election script should count the total number of votes, list the candidates and the total votes they received. Then, the script should calculate the percentage of total votes each candidate received and determine the winner. This analysis should then be exported to a separate text file.
 
 ## User Story
 ```md
@@ -66,7 +66,7 @@ The financial records dataset we are given has only dates and profits/losses in 
 Our script analyzes this data and exports it as a text file. This format is significantly easier for everyone at the company to understand:
 ![The output file of summarized profits and losses.](./Resources\PyBank-summary.png)
 ### PyPoll
-The polling data contains hundred of thousands of votes. Tabulating votes manually would take significant amount of human work hours:
+The polling data contains hundreds of thousands of votes. Tabulating votes manually would take significant amount of human work hours:
 ![An image of a CSV file containing all the votes of a small town election.](./Resources\PyPoll-dataset.png)
 
 Our script quickly counts the votes for each candidate, displays the total number of votes, the percentage earned by each candidate, and the winner. It does all of this in a matter of seconds:
