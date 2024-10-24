@@ -61,16 +61,16 @@ CODE IS CLEANED AND COMMENTED
 ## Examples of Use
 ### PyBank
 The financial records dataset we are given has only dates and profits/losses in a CSV file. Information is a bit difficult to parse in this format:
-![An image of a CSV file containing unedited financial records.](./Resources\PyBank-dataset.png)
+![An image of a CSV file containing unedited financial records.](Resources\PyBank-dataset.png)
 
 Our script analyzes this data and exports it as a text file. This format is significantly easier for everyone at the company to understand:
-![The output file of summarized profits and losses.](./Resources\PyBank-summary.png)
+![The output file of summarized profits and losses.](Resources\PyBank-summary.png)
 ### PyPoll
 The polling data contains hundreds of thousands of votes. Tabulating votes manually would take significant amount of human work hours:
-![An image of a CSV file containing all the votes of a small town election.](./Resources\PyPoll-dataset.png)
+![An image of a CSV file containing all the votes of a small town election.](Resources\PyPoll-dataset.png)
 
 Our script quickly counts the votes for each candidate, displays the total number of votes, the percentage earned by each candidate, and the winner. It does all of this in a matter of seconds:
-![The output file of summarized election data.](./Resources\PyPoll-summary.png)
+![The output file of summarized election data.](Resources\PyPoll-summary.png)
 
 ## License
 This project is licensed under the GNU General Public License v3.0.  
