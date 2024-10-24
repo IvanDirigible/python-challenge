@@ -72,6 +72,11 @@ The polling data contains hundreds of thousands of votes. Tabulating votes manua
 Our script quickly counts the votes for each candidate, displays the total number of votes, the percentage earned by each candidate, and the winner. It does all of this in a matter of seconds:
 ![The output file of summarized election data.](./Resources/PyPoll-summary.png)
 
+## File Links
+Click the following to open the text output files for each dataset:
+* [Budget Data Summary](./PyBank/analysis/budget_analysis.txt)
+* [Polling Data Summary](./PyPoll/analysis/election_analysis.txt)
+
 ## License
 This project is licensed under the GNU General Public License v3.0.  
 License Link:
